@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using System.Linq;
+using System.Collections.Generic;
 
 
 namespace MyTypeViewer
@@ -12,6 +13,15 @@ namespace MyTypeViewer
             Console.WriteLine("Hello World!");
         }
 
+        // Вспомогательный метод для отображения
+        // элементов коллекции IEnumerable<T>.
+        // Сделан с целью рефакторингаю
+        static void PrintCollection(IEnumerable<string> collection)
+        {
+            foreach (var item in collection)
+                Console.WriteLine("-> {0}", item);
+            Console.WriteLine();
+        }
         // Отобразить имена методов в типе.
         static void ListMethods(Type t)
         {
