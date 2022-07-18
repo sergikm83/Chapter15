@@ -38,5 +38,13 @@ namespace MyTypeViewer
             var fieldNames = from f in t.GetFields() select f.Name;
             PrintCollection(fieldNames);
         }
+        
+        // Отобразить имена свойств в типе.
+        static void ListProps(Type t)
+        {
+            Console.WriteLine("***** Properties *****");
+            var propNames = from p in t.GetProperties() select p.Name;
+            PrintCollection(propNames);
+        }
     }
 }
