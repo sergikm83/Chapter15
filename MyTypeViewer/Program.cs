@@ -54,5 +54,22 @@ namespace MyTypeViewer
             var ifaces = from i in t.GetInterfaces() select i.Name;
             PrintCollection(ifaces);
         }
+
+        // Просто ради полноты картины.
+        static void ListVariuosStats(Type t)
+        {
+            Console.WriteLine("***** Various Statistics *****");
+            // базовый класс
+            Console.WriteLine("Base class is: {0}", t.BaseType);
+            // Абстрактный?
+            Console.WriteLine("Is type abstract? {0}", t.IsAbstract);
+            // Запечатанный?
+            Console.WriteLine("Is type sealed? {0}", t.IsSealed);
+            // Обобщенный?
+            Console.WriteLine("Is type generic? {0}", t.IsGenericTypeDefinition);
+            // Класс?
+            Console.WriteLine("Is type a class type? {0}", t.IsClass);
+            Console.WriteLine();
+        }
     }
 }
