@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Reflection;
+using System.Linq;
+
 
 namespace MyTypeViewer
 {
@@ -14,9 +16,10 @@ namespace MyTypeViewer
         static void ListMethods(Type t)
         {
             Console.WriteLine("***** Methods *****");
-            MethodInfo[] mi = t.GetMethods();
-            foreach(MethodInfo m in mi)
-                Console.WriteLine("-> {0}",m.Name);
+            // MethodInfo[] mi = t.GetMethods();
+            var methodNames = from n in t.GetMethods() select n.Name;
+            foreach(var name in methodNames)
+                Console.WriteLine("-> {0}",name);
             Console.WriteLine();
         }
     }
