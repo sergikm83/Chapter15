@@ -22,5 +22,15 @@ namespace MyTypeViewer
                 Console.WriteLine("-> {0}",name);
             Console.WriteLine();
         }
+
+        // Отобразить имена полей в типе.
+        static void ListFields(Type t)
+        {
+            Console.WriteLine("***** Fields *****");
+            var fieldNames = from f in t.GetFields() select f.Name;
+            foreach (var name in fieldNames)
+                Console.WriteLine("-> {0}", name);
+            Console.WriteLine();
+        }
     }
 }
