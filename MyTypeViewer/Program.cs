@@ -46,5 +46,13 @@ namespace MyTypeViewer
             var propNames = from p in t.GetProperties() select p.Name;
             PrintCollection(propNames);
         }
+
+        // Отобразить имена интерфейсов, которые реализуют тип.
+        static void ListInterfaces(Type t)
+        {
+            Console.WriteLine("***** Interfaces *****");
+            var ifaces = from i in t.GetInterfaces() select i.Name;
+            PrintCollection(ifaces);
+        }
     }
 }
