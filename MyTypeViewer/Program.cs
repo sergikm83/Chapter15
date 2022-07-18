@@ -10,7 +10,36 @@ namespace MyTypeViewer
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("***** Welcome to MyTypeViewer *****");
+            string typeName = "";
+            do
+            {
+                // Предложение ввести имя типа
+                Console.WriteLine("\nEnter a type name to evaluate");
+                // или Q для завершения.
+                Console.Write("or enter Q to quit: ");
+                // получить имя типа
+                typeName = Console.ReadLine();
+                // желает ли пользователь завершить программу?
+                if (typeName.Equals("Q", StringComparison.OrdinalIgnoreCase))
+                    break;
+                // попробовать отобразить информацию о типе.
+                try
+                {
+                    Type t = Type.GetType(typeName);
+                    Console.WriteLine();
+                    ListVariuosStats(t);
+                    ListFields(t);
+                    ListProps(t);
+                    ListMethods(t);
+                    ListInterfaces(t);
+                }
+                catch
+                {
+                    // не удается найти тип.
+                    Console.WriteLine("Sorry, can't find type");
+                }
+            } while (true);
         }
 
         // Вспомогательный метод для отображения
