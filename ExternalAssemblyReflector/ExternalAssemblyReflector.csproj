@@ -5,4 +5,10 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="CarLibrary">
+      <HintPath>..\..\CarLibrary\CarLibrary\bin\Debug\net5.0\CarLibrary.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
