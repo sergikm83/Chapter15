@@ -23,9 +23,20 @@ namespace LateBindingApp
                 return;
             }
             if (a != null)
-                // continue this
-                ;
+                CreateUsingBinding(a);
         }
-
+        static void CreateUsingBinding(Assembly asm)
+        {
+            try
+            {
+                // Получить метаданные для типа MiniVan.
+                Type miniVan = asm.GetType("CarLibrary.MiniVan");
+                // Создать экземпляр MiniVan на лету.
+                object obj = Activator.CreateInstance(miniVan);
+                Console.WriteLine("Created a {0} using late binding!", obj);
+            }
+            catch(Exception ex)
+            { Console.WriteLine(ex.Message); }
+        }
     }
 }
