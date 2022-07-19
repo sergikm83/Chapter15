@@ -28,11 +28,12 @@ namespace MyTypeViewer
                 {
                     Type t = Type.GetType(typeName);
                     Console.WriteLine();
-                    ListVariuosStats(t);
-                    ListFields(t);
-                    ListProps(t);
-                    ListMethods(t);
-                    ListInterfaces(t);
+                    AdvanceListMethods(t);
+                    //ListVariuosStats(t);
+                    //ListFields(t);
+                    //ListProps(t);
+                    //ListMethods(t);
+                    //ListInterfaces(t);
                 }
                 catch
                 {
@@ -111,8 +112,8 @@ namespace MyTypeViewer
                 string paramInfo = "( ";
                 // Получить информацию о параметрах.
                 foreach (ParameterInfo pi in m.GetParameters())
-                    paramInfo += string.Format("{0} {1}", pi.ParameterType, pi.Name);
-                paramInfo += " )";
+                    paramInfo += string.Format("{0} {1} ", pi.ParameterType, pi.Name);
+                paramInfo += ")";
                 // Отобразить базовую сигнатуру матода.
                 Console.WriteLine("->{0} {1} {2}", retVal, m.Name, paramInfo);
             }
