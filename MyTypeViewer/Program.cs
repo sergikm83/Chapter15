@@ -56,9 +56,10 @@ namespace MyTypeViewer
         static void ListMethods(Type t)
         {
             Console.WriteLine("***** Methods *****");
-            // MethodInfo[] mi = t.GetMethods();
-            var methodNames = from n in t.GetMethods() select n.Name;
-            PrintCollection(methodNames);
+            var methodNames = from n in t.GetMethods() select n;
+            foreach (var name in methodNames)
+                Console.WriteLine("->{0}", name);
+            Console.WriteLine();
         }
 
         // Отобразить имена полей в типе.
@@ -99,14 +100,6 @@ namespace MyTypeViewer
             Console.WriteLine("Is type generic? {0}", t.IsGenericTypeDefinition);
             // Класс?
             Console.WriteLine("Is type a class type? {0}", t.IsClass);
-            Console.WriteLine();
-        }
-        static void AdvanceListMethods(Type t)
-        {
-            Console.WriteLine("***** Methods *****");
-            var methodNames = from n in t.GetMethods() select n;
-            foreach (var name in methodNames)
-                Console.WriteLine("->{0}", name);
             Console.WriteLine();
         }
     }
