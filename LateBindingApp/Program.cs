@@ -37,7 +37,7 @@ namespace LateBindingApp
                 // Получить информацию о TurboBoost.
                 MethodInfo mi = miniVan.GetMethod("TurboBoost");
                 // Вызвать метод (null означает отсутствие параметров).
-                mi.Invoke(obj, null);
+                mi.Invoke(obj,null);
             }
             catch(Exception ex)
             { Console.WriteLine(ex.Message); }
