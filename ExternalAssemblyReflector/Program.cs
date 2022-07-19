@@ -36,7 +36,7 @@ namespace ExternalAssemblyReflector
                 // Попробовать загрузить сборку.
                 try
                 {
-                    asm = Assembly.Load(asmName);
+                    asm = Assembly.LoadFrom(asmName);
                     DisplayTypesInAsm(asm);
                 }
                 catch
