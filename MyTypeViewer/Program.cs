@@ -28,12 +28,11 @@ namespace MyTypeViewer
                 {
                     Type t = Type.GetType(typeName);
                     Console.WriteLine();
-                    AdvanceListMethods(t);
-                    //ListVariuosStats(t);
-                    //ListFields(t);
-                    //ListProps(t);
-                    //ListMethods(t);
-                    //ListInterfaces(t);
+                    ListVariuosStats(t);
+                    ListFields(t);
+                    ListProps(t);
+                    ListMethods(t);
+                    ListInterfaces(t);
                 }
                 catch
                 {
