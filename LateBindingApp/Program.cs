@@ -15,7 +15,7 @@ namespace LateBindingApp
             Assembly a = null;
             try
             {
-                a = Assembly.Load("CarLibrary");
+                a = Assembly.LoadFrom("CarLibrary");
             }
             catch (FileNotFoundException ex)
             {
@@ -34,6 +34,10 @@ namespace LateBindingApp
                 // Создать экземпляр MiniVan на лету.
                 object obj = Activator.CreateInstance(miniVan);
                 Console.WriteLine("Created a {0} using late binding!", obj);
+                // Получить информацию о TurboBoost.
+                MethodInfo mi = miniVan.GetMethod("TurboBoost");
+                // Вызвать метод (null означает отсутствие параметров).
+                mi.Invoke(obj, null);
             }
             catch(Exception ex)
             { Console.WriteLine(ex.Message); }
