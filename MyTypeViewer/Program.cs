@@ -104,19 +104,9 @@ namespace MyTypeViewer
         static void AdvanceListMethods(Type t)
         {
             Console.WriteLine("***** Methods *****");
-            MethodInfo[] mi = t.GetMethods();
-            foreach (MethodInfo m in mi)
-            {
-                // Получить информацию о возвращаемом типе.
-                string retVal = m.ReturnType.FullName;
-                string paramInfo = "( ";
-                // Получить информацию о параметрах.
-                foreach (ParameterInfo pi in m.GetParameters())
-                    paramInfo += string.Format("{0} {1} ", pi.ParameterType, pi.Name);
-                paramInfo += ")";
-                // Отобразить базовую сигнатуру матода.
-                Console.WriteLine("->{0} {1} {2}", retVal, m.Name, paramInfo);
-            }
+            var methodNames = from n in t.GetMethods() select n;
+            foreach (var name in methodNames)
+                Console.WriteLine("->{0}", name);
             Console.WriteLine();
         }
     }
