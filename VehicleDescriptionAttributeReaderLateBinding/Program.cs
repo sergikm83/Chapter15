@@ -17,5 +17,13 @@ namespace VehicleDescriptionAttributeReaderLateBinding
             string fullAsemblyPath = currSolutionPath + asmName;
             Console.WriteLine($"{fullAsemblyPath}");
         }
+        private static void ReflectAttributesUsingLateBinding(string pathAndFilenameAsembly)
+        {
+            try
+            {
+                // Загрузить локальную сборку AttributesCarLibrary.
+                Assembly
+            }
+        }
     }
 }
