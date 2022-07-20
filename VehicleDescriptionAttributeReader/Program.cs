@@ -13,5 +13,15 @@ namespace VehicleDescriptionAttributeReader
         {
             Console.WriteLine("Hello World!");
         }
+        private static void ReflectOnAttributesUsingEarlyBinding()
+        {
+            // Получить объект Type, представляющий тип Winnebago.
+            Type t = typeof(Winnebago);
+            // Получить все аттрибуты Winnebago.
+            object[] customAtts = t.GetCustomAttributes(false);
+            // вывести описание.
+            foreach(VehicleDescriptionAttribute v in customAtts)
+                Console.WriteLine("-> {0}",v.Description);
+        }
     }
 }
