@@ -14,10 +14,10 @@ namespace VehicleDescriptionAttributeReaderLateBinding
             string findStr = "VehicleDescriptionAttributeReaderLateBinding";
             string currSolutionPath = currProjPath.Substring(0, currProjPath.IndexOf(findStr));
             string asmName = @"AttributesCarLibrary\bin\Debug\net5.0\AttributesCarLibrary.dll";
-            string fullAsemblyPath = currSolutionPath + asmName;
-            Console.WriteLine($"{fullAsemblyPath}");
+            string fullAssemblyPath = currSolutionPath + asmName;
+            Console.WriteLine($"{fullAssemblyPath}");
         }
-        private static void ReflectAttributesUsingLateBinding(string pathAndFilenameAsembly)
+        private static void ReflectAttributesUsingLateBinding(string pathAndFilenameAssembly)
         {
             try
             {
