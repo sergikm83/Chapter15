@@ -11,7 +11,8 @@ namespace VehicleDescriptionAttributeReader
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("***** Value of VehicleDescriptionAttribute *****\n");
+            ReflectOnAttributesUsingEarlyBinding();
         }
         private static void ReflectOnAttributesUsingEarlyBinding()
         {
