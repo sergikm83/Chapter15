@@ -22,7 +22,28 @@ namespace VehicleDescriptionAttributeReaderLateBinding
             try
             {
                 // Загрузить локальную сборку AttributesCarLibrary.
-                Assembly
+                Assembly asm = Assembly.LoadFrom(pathAndFilenameAssembly);
+                // Получить информацию о типе VehicleDescriptionAttribute.
+                Type vehicleDesc = asm.GetType("AttributesCarLibrary.VehicleDescriptionAttribute");
+                // Получить информацию о типе свойства Description.
+                PropertyInfo propDesc = vehicleDesc.GetProperty("Description");
+                // Получить все типы в сборке.
+                Type[] types = asm.GetTypes();
+                // Пройти по всем типам и получить любые атрибуты
+                // VehicleDescriptionAttribute.
+                foreach(Type t in types)
+                {
+                    object[] objs = t.GetCustomAttributes(vehicleDesc, false);
+                    // Пройти по каждому VehicleDecriptionAttribute
+                    // и вывести описание, используя позднее связывание.
+                    foreach(object o in objs)
+                        Console.WriteLine("-> {0}: {1}\n",
+                            t.Name,propDesc.GetValue(o,null));
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
     }
